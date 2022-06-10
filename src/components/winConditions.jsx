@@ -1,6 +1,6 @@
 export default function winConditions(player1ValuedHand, player2ValuedHand) {
   const winningPlayer = 0;
-  const winner = '';
+  let winner = '';
   console.log(player1ValuedHand.length);
   console.log(player2ValuedHand.length);
 
@@ -73,9 +73,11 @@ export default function winConditions(player1ValuedHand, player2ValuedHand) {
   // win based on high card:
   const highCard = () => {
     if (player1ValuedHand[0] > player2ValuedHand[0]) {
-      return true, (winner += 'Player 1');
+      winner += 'Player 1';
+      return true;
     } else {
-      return true, (winner += 'Player 2');
+      winner += 'Player 2';
+      return true;
     }
   };
 
@@ -88,10 +90,10 @@ export default function winConditions(player1ValuedHand, player2ValuedHand) {
     console.log(`Triple was the win condition`);
   } else if (pair() === true) {
     console.log(`Pair was the win condition`);
-  } else if (highCard === true) {
+  } else if (highCard() === true) {
     console.log(`High Card was the win condition`);
   } else {
-    console.log(winner);
+    console.log('error');
   }
   //   return winningPlayer;
 }
