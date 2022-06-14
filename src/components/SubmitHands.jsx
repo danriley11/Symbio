@@ -26,8 +26,8 @@ export default function submitHands(player1State, player2State) {
   player1ValuedHand.sort((a, b) => b - a);
   player2ValuedHand.sort((a, b) => b - a);
 
-  console.log(player1Hand, player1ValuedHand);
-  console.log(player2Hand, player2ValuedHand);
+  console.log(player1Hand, player1ValuedHand[0]);
+  console.log(player2Hand, player2ValuedHand[0]);
 
   //identify which player wins based on highCard
   const winner = winConditions(player1ValuedHand, player1ValuedHand);

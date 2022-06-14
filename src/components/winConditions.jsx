@@ -1,8 +1,8 @@
-export default function winConditions(player1ValuedHand, player2ValuedHand) {
-  const winningPlayer = 0;
-  let winner = '';
-  console.log(player1ValuedHand.length);
-  console.log(player2ValuedHand.length);
+import { useState } from 'react';
+
+export default function WinConditions(player1ValuedHand, player2ValuedHand, winner) {
+  // console.log(player1ValuedHand.length);
+  // console.log(player2ValuedHand.length);
 
   //logic for wins:
   // win based on royalFlush:
@@ -53,6 +53,12 @@ export default function winConditions(player1ValuedHand, player2ValuedHand) {
         player1ValuedHand[index] === player1ValuedHand[index + 2]
       ) {
         return true;
+      } else if (
+        player2ValuedHand[index] === player2ValuedHand[index] &&
+        player2ValuedHand[index] === player2ValuedHand[index + 1] &&
+        player2ValuedHand[index] === player2ValuedHand[index + 2]
+      ) {
+        return true;
       } else {
         console.log('skipped3');
       }
@@ -71,29 +77,36 @@ export default function winConditions(player1ValuedHand, player2ValuedHand) {
     }
   };
   // win based on high card:
-  const highCard = () => {
-    if (player1ValuedHand[0] > player2ValuedHand[0]) {
-      winner += 'Player 1';
+  const highCard = (e) => {
+    if (player2ValuedHand[0] < player1ValuedHand[0]) {
+      winner = 'Player 2';
       return true;
     } else {
-      winner += 'Player 2';
+      winner = 'Player 1';
       return true;
     }
   };
 
   //check who wins:
   if (fourOfAKind() === true) {
-    console.log(`Four Of A Kind was the win condition`);
+    alert(`Four Of A Kind was the win condition!`);
   } else if (straight() === true) {
-    console.log(`Straight was the win condition`);
+    alert(`Straight was the win condition!`);
   } else if (triple() === true) {
-    console.log(`Triple was the win condition`);
+    alert(`Triple was the win condition!`);
   } else if (pair() === true) {
-    console.log(`Pair was the win condition`);
+    alert(`Pair was the win condition!`);
   } else if (highCard() === true) {
-    console.log(`High Card was the win condition`);
+    console.log(winner);
+    console.log(`High Card was the win condition!`);
+    return winner;
   } else {
-    console.log('error');
+    console.log('Error: No win condition');
   }
-  //   return winningPlayer;
+
+  return (
+    <>
+      <h3>{winner}</h3>
+    </>
+  );
 }
