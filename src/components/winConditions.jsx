@@ -51,15 +51,33 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
       if (
         player1ValuedHand[index] === player1ValuedHand[index] &&
         player1ValuedHand[index] === player1ValuedHand[index + 1] &&
+        player1ValuedHand[index] === player1ValuedHand[index + 2] &&
+        player2ValuedHand[index] === player2ValuedHand[index] &&
+        player2ValuedHand[index] === player2ValuedHand[index + 1] &&
+        player2ValuedHand[index] === player2ValuedHand[index + 2]
+      ) {
+        //check who has higher triple
+        if (player1ValuedHand[index] > player2ValuedHand[index]) {
+          winner = 'Player 1';
+        } else if (player2ValuedHand[index] > player1ValuedHand[index]) {
+          winner = 'Player 2';
+        } else if (player1ValuedHand[index] === player2ValuedHand[index]) {
+          highCard();
+        }
+      } else if (
+        player1ValuedHand[index] === player1ValuedHand[index] &&
+        player1ValuedHand[index] === player1ValuedHand[index + 1] &&
         player1ValuedHand[index] === player1ValuedHand[index + 2]
       ) {
-        return true;
+        console.log('Player1 has a Triple!');
+        winner = 'Player 1';
       } else if (
         player2ValuedHand[index] === player2ValuedHand[index] &&
         player2ValuedHand[index] === player2ValuedHand[index + 1] &&
         player2ValuedHand[index] === player2ValuedHand[index + 2]
       ) {
-        return true;
+        console.log('Player2 has a Triple!');
+        winner = 'Player 2';
       } else {
         console.log('skipped3');
       }
