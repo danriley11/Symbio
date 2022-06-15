@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 export default function WinConditions(player1ValuedHand, player2ValuedHand, winner) {
-  // console.log(player1ValuedHand.length);
-  // console.log(player2ValuedHand.length);
+  console.log(player1ValuedHand);
+  console.log(player2ValuedHand);
+  console.log(winner);
 
   //logic for wins:
   // win based on royalFlush:
@@ -69,8 +70,24 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
   // win based on pair:
   const pair = () => {
     for (let index = 0; index < player1ValuedHand.length; index++) {
-      if (player1ValuedHand[index] === player1ValuedHand[index + 1]) {
-        return true;
+      if (
+        player1ValuedHand[index] === player1ValuedHand[index + 1] &&
+        player2ValuedHand[index] === player2ValuedHand[index + 1]
+      ) {
+        //check who has higher pair
+        if (player1ValuedHand[index] > player2ValuedHand[index]) {
+          winner = 'Player 1';
+        } else if (player2ValuedHand[index] > player1ValuedHand[index]) {
+          winner = 'Player 2';
+        } else if (player1ValuedHand[index] === player2ValuedHand[index]) {
+          highCard();
+        }
+      } else if (player1ValuedHand[index] === player1ValuedHand[index + 1]) {
+        console.log('Player1 has a Pair!');
+        winner = 'Player 1';
+      } else if (player2ValuedHand[index] === player2ValuedHand[index + 1]) {
+        console.log('Player2 has a Pair!');
+        winner = 'Player 2';
       } else {
         console.log('skipped2');
       }
@@ -78,24 +95,33 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
   };
   // win based on high card:
   const highCard = (e) => {
-    if (player2ValuedHand[0] < player1ValuedHand[0]) {
-      winner = 'Player 2';
-      return true;
-    } else {
-      winner = 'Player 1';
-      return true;
+    for (let index = 0; index <= player1ValuedHand.length; index++) {
+      if (index === 5) {
+        winner = "It's a tie!";
+        return true;
+      } else if (player1ValuedHand[index] === player2ValuedHand[index]) {
+        console.log('tied');
+      } else if (player1ValuedHand[index] > player2ValuedHand[index]) {
+        winner = 'Player 1';
+        return true;
+      } else if (player2ValuedHand[index] > player1ValuedHand[index]) {
+        winner = 'Player 2';
+        return true;
+      } else {
+        return false;
+      }
     }
   };
 
   //check who wins:
   if (fourOfAKind() === true) {
-    alert(`Four Of A Kind was the win condition!`);
+    console.log(`Four Of A Kind was the win condition!`);
   } else if (straight() === true) {
-    alert(`Straight was the win condition!`);
+    console.log(`Straight was the win condition!`);
   } else if (triple() === true) {
-    alert(`Triple was the win condition!`);
+    console.log(`Triple was the win condition!`);
   } else if (pair() === true) {
-    alert(`Pair was the win condition!`);
+    console.log(`Pair was the win condition!`);
   } else if (highCard() === true) {
     console.log(winner);
     console.log(`High Card was the win condition!`);
