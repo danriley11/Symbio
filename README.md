@@ -2,25 +2,30 @@
 
 I understand the task was to test my Java knowledge, however I have chosen to do it with a react.js
 as i believe it's a higher priority to exemplify content/logic than to struggle using another language
-which could later be learned outside the context of a test. 
+which could later be learned outside the context of a test.
 
 ## Passion & Confidence in Learning
+
 I'm confident i'd be able to pickup other languages given the chance. I learn best through reverse-engineering
 and building up from smaller components/building blocks.
 
 ## Context
+
 Unfortunately i've only been able to work on this project across the span of a single day as i've been feeling very
-unwell the past 3 days and have a sisters wedding the day after this submission. Life isn't always going to be this 
+unwell the past 3 days and have a sisters wedding the day after this submission. Life isn't always going to be this
 hectic however I hope it helps that i had & have every intention of completing this within and outside the alotted
-time for this task. 
+time for this task.
 
 ## Learnings from this task
+
 1. I've learnt that breaking down a string and converting to a value can be quite tricky when also linked with comparing two sets of strings
 2. Boundaries and edge-cases require testing and validation before moving on. It's easier to spend more time at the beginning than resolving bugs at the end
-> However this doesn't rule out learning how to resolve earlier bugs from later code.
+   > However this doesn't rule out learning how to resolve earlier bugs from later code.
 
 ## Known Bugs
-1. Hands: 9,9,T,6,6 vs 8,8,8,5,7 results in Player1 Winning. HighCard compares the T to 8
+
+1. ~~Hands: 9,9,T,6,6 vs 8,8,8,5,7 results in Player1 Winning. HighCard compares the T to 8~~
+2. Hands: 9,9,T,8,6 vs 8,8,4,6,7 results in Player2 Winning. Sorting algorithm outputs: T,9,9,8,6 vs 8,8,7,6,4. Pair comparison is never triggered.
 
 # Getting Started with Create React App
 
