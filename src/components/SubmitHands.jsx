@@ -3,7 +3,7 @@ import React from 'react';
 import cardNumber from '../resources/cardNumber.json';
 import winConditions from './winConditions';
 
-export default function submitHands(player1State, player2State) {
+export default function submitHands(player1State, player2State, winner) {
   const player1Hand = player1State.split(' ');
   const player1ValuedHand = [];
   for (let i = 0; i < player1Hand.length; i++) {
@@ -26,11 +26,13 @@ export default function submitHands(player1State, player2State) {
   player1ValuedHand.sort((a, b) => b - a);
   player2ValuedHand.sort((a, b) => b - a);
 
-  console.log(player1Hand, player1ValuedHand[0]);
-  console.log(player2Hand, player2ValuedHand[0]);
+  console.log(player1Hand, player1ValuedHand);
+  console.log(player2Hand, player2ValuedHand);
 
   //identify which player wins based on highCard
-  const winner = winConditions(player1ValuedHand, player1ValuedHand);
+  const outcome = winConditions(player1ValuedHand, player2ValuedHand, winner);
+  console.log(outcome);
+  winner = outcome;
 
-  return <div>Player {winner} is the winner!</div>;
+  return winner;
 }

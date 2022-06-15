@@ -1,6 +1,6 @@
 {
-  "D": "Diamonds",
-  "H": "Hearts",
-  "S": "Spades",
-  "C": "Clubs"
+  "D": 0.1,
+  "H": 0.2,
+  "S": 0.3,
+  "C": 0.4
 }

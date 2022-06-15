@@ -5,7 +5,7 @@ import WinConditions from './winConditions';
 
 export default function UserInput() {
   const [player1State, setPlayer1State] = useState('9H 8S TD AD 7S');
-  const [player2State, setPlayer2State] = useState('4H JS 3C TC 8D');
+  const [player2State, setPlayer2State] = useState('4H JS TC TC 8D');
   const [winner, setWinner] = useState('');
 
   const handlePlayer1Change = (e) => {
@@ -16,15 +16,16 @@ export default function UserInput() {
     setPlayer2State(e.target.value);
   };
 
-  // const handleWinnerChange = () => {
-  //   setWinner(newWinner);
-  //   console.log(newWinner);
-  // };
+  const handleChange = () => {
+    const outcome = submitHands(player1State, player2State, winner);
+    console.log(outcome);
+    setWinner(outcome);
+  };
 
   return (
     <>
       And the winner is...! <br />
-      <WinConditions />
+      <b>{winner}</b>
       <div>
         <input
           id="player1"
@@ -40,7 +41,8 @@ export default function UserInput() {
       <input
         type="button"
         value="Submit Options"
-        onClick={() => submitHands(player1State, player2State, winner)}></input>
+        onMouseDown={() => submitHands(player1State, player2State, winner)}
+        onMouseUp={() => handleChange()}></input>
     </>
   );
 }

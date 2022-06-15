@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 export default function WinConditions(player1ValuedHand, player2ValuedHand, winner) {
-  // console.log(player1ValuedHand.length);
-  // console.log(player2ValuedHand.length);
+  console.log(player1ValuedHand);
+  console.log(player2ValuedHand);
+  console.log(winner);
 
   //logic for wins:
   // win based on royalFlush:
@@ -78,12 +79,14 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
   };
   // win based on high card:
   const highCard = (e) => {
-    if (player2ValuedHand[0] < player1ValuedHand[0]) {
+    if (player1ValuedHand[0] > player2ValuedHand[0]) {
+      winner = 'Player 1';
+      return true;
+    } else if (player2ValuedHand[0] > player1ValuedHand[0]) {
       winner = 'Player 2';
       return true;
     } else {
-      winner = 'Player 1';
-      return true;
+      return false;
     }
   };
 
