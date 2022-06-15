@@ -71,10 +71,23 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
   const pair = () => {
     for (let index = 0; index < player1ValuedHand.length; index++) {
       if (
-        player1ValuedHand[index] === player1ValuedHand[index + 1] ||
+        player1ValuedHand[index] === player1ValuedHand[index + 1] &&
         player2ValuedHand[index] === player2ValuedHand[index + 1]
       ) {
-        return true;
+        //check who has higher pair
+        if (player1ValuedHand[index] > player2ValuedHand[index]) {
+          winner = 'Player 1';
+        } else if (player2ValuedHand[index] > player1ValuedHand[index]) {
+          winner = 'Player 2';
+        } else if (player1ValuedHand[index] === player2ValuedHand[index]) {
+          highCard();
+        }
+      } else if (player1ValuedHand[index] === player1ValuedHand[index + 1]) {
+        console.log('Player1 has a Pair!');
+        winner = 'Player 1';
+      } else if (player2ValuedHand[index] === player2ValuedHand[index + 1]) {
+        console.log('Player2 has a Pair!');
+        winner = 'Player 2';
       } else {
         console.log('skipped2');
       }
@@ -82,8 +95,8 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
   };
   // win based on high card:
   const highCard = (e) => {
-    for (let index = 0; index < player1ValuedHand.length; index++) {
-      if (index === 4) {
+    for (let index = 0; index <= player1ValuedHand.length; index++) {
+      if (index === 5) {
         winner = "It's a tie!";
         return true;
       } else if (player1ValuedHand[index] === player2ValuedHand[index]) {

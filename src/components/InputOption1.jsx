@@ -4,8 +4,8 @@ import submitHands from './SubmitHands';
 import WinConditions from './winConditions';
 
 export default function UserInput() {
-  const [player1State, setPlayer1State] = useState('9H 8S 7D 5D 4S');
-  const [player2State, setPlayer2State] = useState('9H 8S 7C 5C 4D');
+  const [player1State, setPlayer1State] = useState('9H 9S 7D 7D 4S');
+  const [player2State, setPlayer2State] = useState('9H 9S 7C 7C 5D');
   const [winner, setWinner] = useState('');
 
   const handlePlayer1Change = (e) => {
