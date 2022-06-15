@@ -4,8 +4,8 @@ import submitHands from './SubmitHands';
 import WinConditions from './winConditions';
 
 export default function UserInput() {
-  const [player1State, setPlayer1State] = useState('9H 8S TD AD 7S');
-  const [player2State, setPlayer2State] = useState('4H JS TC TC 8D');
+  const [player1State, setPlayer1State] = useState('9H 8S 7D 5D 4S');
+  const [player2State, setPlayer2State] = useState('9H 8S 7C 5C 4D');
   const [winner, setWinner] = useState('');
 
   const handlePlayer1Change = (e) => {
@@ -29,12 +29,12 @@ export default function UserInput() {
       <div>
         <input
           id="player1"
-          placeholder="AH 9S 4D TD 8S"
+          placeholder={player1State}
           maxLength={14}
           onChange={(e) => handlePlayer1Change(e)}></input>
         <input
           id="player2"
-          placeholder="4H JS 3C TC 8D"
+          placeholder={player2State}
           maxLength={14}
           onChange={(e) => handlePlayer2Change(e)}></input>
       </div>
