@@ -19,6 +19,11 @@ time for this task.
 2. Boundaries and edge-cases require testing and validation before moving on. It's easier to spend more time at the beginning than resolving bugs at the end
 > However this doesn't rule out learning how to resolve earlier bugs from later code.
 
+## Known Bugs
+Hands:
+9,9,T,6,6 vs 8,8,8,5,7
+results in Player1 Winning.
+HighCard compares the T to 8
 
 # Getting Started with Create React App
 
