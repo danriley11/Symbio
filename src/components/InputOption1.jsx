@@ -37,11 +37,7 @@ export default function UserInput() {
           maxLength={14}
           onChange={(e) => handlePlayer2Change(e)}></input>
       </div>
-      <input
-        type="button"
-        value="Submit Options"
-        onMouseDown={() => submitHands(player1State, player2State, winner)}
-        onMouseUp={() => handleChange()}></input>
+      <input type="button" value="Submit Options" onClick={() => handleChange()}></input>
     </>
   );
 }
