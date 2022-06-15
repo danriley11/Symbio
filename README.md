@@ -27,6 +27,12 @@ time for this task.
 1. ~~Hands: 9,9,T,6,6 vs 8,8,8,5,7 results in Player1 Winning. HighCard compares the T to 8~~
 2. Hands: 9,9,T,8,6 vs 8,8,4,6,7 results in Player2 Winning. Sorting algorithm outputs: T,9,9,8,6 vs 8,8,7,6,4. Pair comparison is never triggered.
 
+## To Do
+
+- Resolve sorting algorithm bug
+- Assign values to suits
+- Configure win conditions for suits
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

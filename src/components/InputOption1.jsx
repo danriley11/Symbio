@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import submitHands from './SubmitHands';
 
 export default function UserInput() {
-  const [player1State, setPlayer1State] = useState('9H 9S TD 8D 6S');
+  const [player1State, setPlayer1State] = useState('9H 9S 7D 8D 6S');
   const [player2State, setPlayer2State] = useState('8H 8S 4C 6C 7D');
   const [winner, setWinner] = useState('');
 

@@ -4,7 +4,6 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
   console.log(player1ValuedHand);
   console.log(player2ValuedHand);
   console.log(winner);
-  let kicker = 0;
   //logic for validating input:
 
   //logic for wins:
@@ -148,8 +147,8 @@ export default function WinConditions(player1ValuedHand, player2ValuedHand, winn
     }
   };
   // win based on high card:
-  const highCard = (kicker) => {
-    for (let index = kicker || 0; index <= player1ValuedHand.length; index++) {
+  const highCard = () => {
+    for (let index = 0; index <= player1ValuedHand.length; index++) {
       if (index === 5) {
         winner = "It's a tie!";
         return true;
